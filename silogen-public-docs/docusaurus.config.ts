@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "SiloGen Documentation",
+  title: "SiloGen Docs",
   tagline: "Custom LLMs made easy.",
   favicon: "img/favicon.ico",
 
@@ -11,12 +11,12 @@ const config: Config = {
   url: "https://silogen.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/documentation/",
+  baseUrl: "/docs/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "silogen", // Usually your GitHub org/user name.
-  projectName: "documentation", // Usually your repo name.
+  projectName: "docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",

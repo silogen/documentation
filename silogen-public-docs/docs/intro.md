@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Documentation Introduction
+# Docs Introduction
 
 This is the starting point of the public documentation for the SiloGen product.
 
