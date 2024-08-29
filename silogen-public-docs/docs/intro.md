@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Docs Introduction
+# SiloGen Docs Introduction
 
 This is the starting point of the public documentation for the SiloGen product.
 
