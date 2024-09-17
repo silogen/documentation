@@ -1,0 +1,127 @@
+{
+  "label": "Docs Sidebar",
+  "items": [
+    {
+      "document": "docs/intro.mdx",
+      "label": "SiloGen Docs Introduction",
+      "_template": "doc"
+    },
+    {
+      "document": "docs/registering.mdx",
+      "label": "Registering a New User",
+      "_template": "doc"
+    },
+    {
+      "title": "Using the API",
+      "link": "doc",
+      "docLink": "docs/using-the-api/index.mdx",
+      "items": [
+        {
+          "document": "docs/using-the-api/authentication.mdx",
+          "label": "Authentication",
+          "_template": "doc"
+        },
+        {
+          "title": "LLM Service",
+          "link": "doc",
+          "docLink": "docs/using-the-api/llm-service/index.mdx",
+          "items": [
+            {
+              "document": "docs/using-the-api/llm-service/changing-prompt-template.mdx",
+              "label": "Changing Prompt Template for RAG",
+              "_template": "doc"
+            },
+            {
+              "document": "docs/using-the-api/llm-service/python-example.mdx",
+              "label": "Python Example",
+              "_template": "doc"
+            },
+            {
+              "document": "docs/using-the-api/llm-service/common-parameters.mdx",
+              "label": "Common Parameters and Values",
+              "_template": "doc"
+            }
+          ],
+          "_template": "category"
+        },
+        {
+          "document": "docs/using-the-api/rag-document-collection-service.mdx",
+          "label": "RAG Document Collection Service",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/using-the-api/feedback-collection.mdx",
+          "label": "Feedback Collection [under development]",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/using-the-api/response-status.mdx",
+          "label": "Response Status and Error Codes",
+          "_template": "doc"
+        }
+      ],
+      "_template": "category"
+    },
+    {
+      "document": "docs/using-chat-ui.mdx",
+      "label": "Using the Chat UI",
+      "_template": "doc"
+    },
+    {
+      "title": "Developer Console [under development]",
+      "link": "doc",
+      "docLink": "docs/developer-console/index.mdx",
+      "items": [
+        {
+          "document": "docs/developer-console/playground-model-comparison.mdx",
+          "label": "Playground - Model Comparison",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/developer-console/collection-management.mdx",
+          "label": "Collection Management",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/developer-console/fine-tuning.mdx",
+          "label": "Fine-tuning",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/developer-console/evaluation.mdx",
+          "label": "Evaluation",
+          "_template": "doc"
+        }
+      ],
+      "_template": "category"
+    },
+    {
+      "title": "Models [Section in progress]",
+      "link": "doc",
+      "docLink": "docs/models/index.mdx",
+      "items": [
+        {
+          "document": "docs/models/viking-7b.mdx",
+          "label": "Viking-7b",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/models/poro-34b.mdx",
+          "label": "Poro-34b",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/models/mistral-7b-instruct.mdx",
+          "label": "Mistral-7b-instruct",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/models/poro-chat-34b.mdx",
+          "label": "Poro-chat-34b",
+          "_template": "doc"
+        }
+      ],
+      "_template": "category"
+    }
+  ]
+}
