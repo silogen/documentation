@@ -31,10 +31,11 @@ const config: Config = {
 
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
+          path: "./external-docs/docs",
+          sidebarPath: "./sidebars.js",
           routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
