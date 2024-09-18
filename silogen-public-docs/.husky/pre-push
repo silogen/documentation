@@ -1,0 +1,14 @@
+# Run only if there are changes in the docs/silogen-public-docs directory
+if git diff --name-only HEAD^ HEAD | grep --quiet "docs/silogen-public-docs"; then
+
+    # Change to docs/silogen-public-docs from any path
+    git_root=$(git rev-parse --show-toplevel)
+    cd "$git_root/docs/silogen-public-docs" || exit
+
+    echo "Running Prettier..."
+    npm run format
+
+    echo "Running ESLint..."
+    npm run lint
+
+fi

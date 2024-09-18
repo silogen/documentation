@@ -1,0 +1,4 @@
+cd docs/silogen-public-docs || exit
+
+echo "Running Prettier..."
+npm run format:staged

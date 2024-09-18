@@ -125,10 +125,10 @@ const TabsTemplate = {
               name: "value",
               type: "string",
               ui: {
-                component: ({ input, tinaForm }) => {
+                component: function ValueComponent({ input, tinaForm }) {
                   React.useEffect(() => {
                     input.onChange(slugify(tinaForm.values.label));
-                  }, [JSON.stringify(tinaForm.values)]);
+                  }, [tinaForm.values.label]);
 
                   return (
                     <input
