@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -30,7 +30,7 @@ jobs:
       - name: Build website
         run: |
           cd silogen-public-docs
-          npm run build
+          npm run docusaurusbuild
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
