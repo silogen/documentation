@@ -78,5 +78,5 @@ The webapp is deployed during a release of the SiloGen system.
 
 ## Future Work
 
-- enable regular auth with keycloak and a special role that allows editing docs
-- deploy also the internal docs using this method
+- enable regular auth with keycloak and a special role that allows editing docs.
+- deploy also the internal docs using this method.

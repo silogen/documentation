@@ -14,4 +14,4 @@ docker run -d --name tinacms \
 -e NEXTAUTH_SECRET="${NEXTAUTH_SECRET}" \
 -e NEXTAUTH_URL="${NEXTAUTH_URL}" \
 --platform linux/amd64 \
-europe-west4-docker.pkg.dev/silogen-dev/silogen-dev/tinacms-external-docs
+europe-west4-docker.pkg.dev/silogen-dev/silogen-dev/external-docs

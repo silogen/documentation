@@ -29,10 +29,6 @@
     ".forestry/types.ts",
     ".forestry/config.ts",
     ".next/types/**/*.ts",
-    "tina/config.jsx",
-    "tina/collections/page.ts",
-    "app/page.tsx.bak",
-    "components/page.tsx",
-    "app/page.js.bak"
+    "tina/config.jsx"
   ]
 }
