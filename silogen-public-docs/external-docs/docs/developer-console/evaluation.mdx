@@ -17,7 +17,7 @@ SiloGen employs LLM-as-a-judge (https://arxiv.org/abs/2306.05685) to perform eva
 The first step to evaluating your model(s) is to upload evaluation data to our platform. The evaluation data should represent conversations, including indicative responses from the model, which you would like to compare against the actual responses.
 Once you have procured training data for your model, navigate to the [Datasets page](https://chat.services.silogen.ai/console/datasets) of the developer console to upload the dataset.
 
-We currently support uploading datasets in a JSONL format, where each row represents a separate chat conversation, including the models' expected response. The format of each row should correspond to what is defined in our [API](https://catalog.services.silogen.ai/redoc#tag/Datasets/operation/add_data_point) for each datapoint, of type ChatWithResponse.
+We currently support uploading datasets in a JSONL format, where each row represents a separate chat conversation, including the models' expected response. The format of each row should correspond to what is defined in our [API](https://catalog.services.silogen.ai/redoc#tag/Datasets/operation/add_data_points) for each datapoint, of type ChatWithResponse.
 
 Subsequently, click the "Upload" button and drop your JSONL file in with a name and description
 
