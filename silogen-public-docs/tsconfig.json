@@ -22,13 +22,5 @@
     "strictNullChecks": true
   },
   "exclude": ["node_modules"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".forestry/types.ts",
-    ".forestry/config.ts",
-    ".next/types/**/*.ts",
-    "tina/config.jsx"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

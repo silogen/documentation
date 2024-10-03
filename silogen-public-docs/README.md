@@ -54,6 +54,24 @@ $ ./docker-run.sh
 
 For production use, the container is built using the usual CI/CD system.
 
+#### Setup pre-commit & pre-push with Husky for linting and formatting
+
+Just be sure to be in the `docs/silogen-public-docs` directory and run the following command:
+
+```bash
+npm run prepare
+```
+
+This will install the husky hooks and will run the formatting and docusaurus build before each commit and linting, formatting and tests before each push.
+
+### How to skip the pre-commit & pre-push hooks
+
+Just add the `--no-verify` or `-n` flag to the `git commit` or `git push` command.
+
+Note: when using Graphite, you cannot use `-n` but only `--no-verify`.
+
+Note: when running tinacms with `npm run dev` it modifies the public/admin/.gitignore file and removes the line break at the end. This breaks the pre-commit checks so you should rever that change before committing. Same goes for the tina-lock.json file.
+
 ### Using Tina CMS online
 
 When TinaCMS is deployed as a web app you can use it to edit the files in the docs online without a Github account.

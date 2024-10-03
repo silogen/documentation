@@ -1,4 +1,6 @@
-public/assets
+public/admin/assets
 pulic/index.html
 pnpm-lock.yaml
 tina/tina-lock.json
+tina/__generated__
+.husky/_

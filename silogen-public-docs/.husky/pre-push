@@ -11,4 +11,10 @@ if git diff --name-only HEAD^ HEAD | grep --quiet "docs/silogen-public-docs"; th
     echo "Running ESLint..."
     npm run lint
 
+    echo "Building docusaurus external docs"
+    npm run docusaurusbuild
+
+    echo "Running tests"
+    npm run test
+
 fi

@@ -833,7 +833,7 @@ const SettingsCollection = {
 // };
 
 const branch = process.env.GITHUB_BRANCH;
-console.log("Using branch: " + branch);
+console.log("Using branch: " + branch + " and rootPath: " + rootPath);
 
 export default defineConfig({
   branch,

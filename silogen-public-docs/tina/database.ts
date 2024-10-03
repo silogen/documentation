@@ -48,7 +48,7 @@ function getDatabaseInstance() {
     owner,
     repo,
     token,
-    rootPath: "docs/silogen-public-docs",
+    rootPath: rootPath,
   });
 
   // Store the original onPut function and bind it to the gitProvider

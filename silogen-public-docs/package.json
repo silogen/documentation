@@ -2,7 +2,6 @@
   "name": "silogen-docs",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev --verbose -c \"next dev\"",
     "dev:prod": "TINA_PUBLIC_IS_LOCAL=false tinacms dev --verbose -c \"next dev\"",
@@ -10,7 +9,7 @@
     "docusaurus": "docusaurus",
     "docusaurus-start": "docusaurus start",
     "nextbuild": "next build",
-    "tinacmsbuild": "tinacms build --verbose --partial-reindex",
+    "tinacmsbuild": "tinacms build --verbose --skip-indexing",
     "docusaurusbuild": "docusaurus build",
     "start": "next start",
     "lint": "next lint --fix",
@@ -25,10 +24,10 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "build-no-docusaurus": "tinacms build --verbose --preview-base-branch main --preview-name external-docs && next build",
+    "build-no-docusaurus": "tinacms build --verbose --preview-base-branch main --preview-name external-docs --skip-indexing && next build",
     "clean": "docusaurus clear && rm -r .next .yarn node_modules tina/__generated__",
     "prepare": "cd ../.. && husky docs/silogen-public-docs/.husky",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch"
   },
   "devDependencies": {

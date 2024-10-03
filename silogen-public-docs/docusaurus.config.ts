@@ -35,7 +35,7 @@ const config: Config = {
       {
         docs: {
           path: "./external-docs/docs",
-          sidebarPath: "./sidebars.js",
+          sidebarPath: "./sidebars.mjs",
           routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -90,4 +90,4 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 };
 
-export default config;
+export default config satisfies Config;
