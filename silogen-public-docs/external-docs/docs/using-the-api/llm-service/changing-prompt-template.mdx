@@ -9,7 +9,7 @@ There are default prompt templates for RAG in the SiloGen platform. These often 
 - The system prompt: this gives general instructions of what the system (model really) should do. This is the one that in the LLM literature often starts with “You are a helpful assistant…”.
   The RAG prompt template: this contains variables for using the retrieved sources in combination with the user’s input/question as the prompt to the model. The `user_message` and `sources_string` are required, but more instructions can be added before/after. See code example below.
 - The source template. Just leave this one as is unless you really know what you want to achieve and how. Currently, it loops through the number of found sources and gives them all to the model as part of the prompt_template.
-- **NOTE**: Different system and prompt template can also be tested in the [Developer Console under development](../../developer-console/index.mdx)
+- **NOTE**: Different system and prompt template can also be tested in the [Developer Console](../../developer-console/index.mdx)
 
 Example for setting **system** and **prompt_template** showing lightly edited versions of the default templates in blue:
 

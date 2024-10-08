@@ -68,12 +68,17 @@
       "_template": "doc"
     },
     {
-      "title": "Developer Console [under development]",
+      "title": "Developer Console",
       "link": "doc",
       "docLink": "docs/developer-console/index.mdx",
       "items": [
         {
-          "document": "docs/developer-console/playground-model-comparison.mdx",
+          "document": "docs/developer-console/playground-chat.mdx",
+          "label": "Playground - Chat",
+          "_template": "doc"
+        },
+        {
+          "document": "docs/developer-console/playground-compare.mdx",
           "label": "Playground - Model Comparison",
           "_template": "doc"
         },

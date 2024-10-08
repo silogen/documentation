@@ -1,0 +1,25 @@
+---
+title: Playground - Model Comparison
+sidebar_position: 1
+---
+
+# Playground - Chat
+
+The Playground Chat page allows you to experiment with models you have access to - you will be able to modify several Retrieval and Generation parameters to judge how they affect the model's response.
+
+## Accessing the Playground Chat
+
+Navigate to the [SiloGen Developer Console](https://chat.services.silogen.ai/console) to access the Playground Chat.
+
+You will be able to choose from the list of models you have access to.
+Expand the settings toggle to view and modify the retrieval and generation parameters, using same format as for the API (eg. [Changing Prompt Template for RAG](../using-the-api/llm-service/changing-prompt-template.mdx))
+
+![Playground Chat](../img/playground/playground-chat.png)
+
+## Inspecting the debug output of the model
+
+Once you have a response from the model, you can inspect the messages that were sent to the model, the context retrieved as part of RAG and the consumed tokens by clicking the "bug" icon next to the response.
+
+![Debug Icon](../img/playground/debug-icon.png)
+
+![Debug Output](../img/playground/debug-output.png)
