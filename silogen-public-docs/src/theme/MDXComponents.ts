@@ -6,7 +6,7 @@ import Tabs from "@theme-original/Tabs";
 import TabItem from "@theme-original/TabItem";
 import DocCardList from "@theme-original/DocCardList";
 
-export default {
+const components = {
   ...MDXComponents,
   Details: Details,
   CodeBlock: CodeBlock,
@@ -15,3 +15,5 @@ export default {
   Admonition: MDXComponents.admonition,
   DocCardList: DocCardList,
 };
+
+export default components;

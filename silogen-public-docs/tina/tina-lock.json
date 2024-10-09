@@ -1,15 +1,15 @@
 {
   "schema": {
     "version": {
-      "fullVersion": "1.5.2",
+      "fullVersion": "1.5.4",
       "major": "1",
       "minor": "5",
-      "patch": "2"
+      "patch": "4"
     },
     "meta": { "flags": ["experimentalData"] },
     "collections": [
       {
-        "path": "external-docs/content/users",
+        "path": "internal-docs/content/users",
         "name": "user",
         "ui": {
           "global": true,
@@ -72,8 +72,8 @@
       },
       {
         "path": "external-docs/docs",
-        "name": "doc",
-        "label": "Docs",
+        "name": "external_doc",
+        "label": "External Docs",
         "format": "mdx",
         "fields": [
           {
@@ -82,7 +82,7 @@
             "label": "Title",
             "isTitle": true,
             "required": true,
-            "namespace": ["doc", "title"],
+            "namespace": ["external_doc", "title"],
             "searchable": true,
             "uid": false
           },
@@ -90,7 +90,7 @@
             "type": "string",
             "name": "description",
             "label": "Description",
-            "namespace": ["doc", "description"],
+            "namespace": ["external_doc", "description"],
             "searchable": true,
             "uid": false
           },
@@ -100,7 +100,7 @@
             "type": "string",
             "list": true,
             "ui": { "component": "tags" },
-            "namespace": ["doc", "tags"],
+            "namespace": ["external_doc", "tags"],
             "searchable": true,
             "uid": false
           },
@@ -125,7 +125,7 @@
                       { "label": "Caution", "value": "caution" },
                       { "label": "Danger", "value": "danger" }
                     ],
-                    "namespace": ["doc", "body", "Admonition", "type"],
+                    "namespace": ["external_doc", "body", "Admonition", "type"],
                     "searchable": true,
                     "uid": false
                   },
@@ -135,7 +135,12 @@
                     "type": "string",
                     "isTitle": true,
                     "required": true,
-                    "namespace": ["doc", "body", "Admonition", "title"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "Admonition",
+                      "title"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -143,13 +148,18 @@
                     "name": "children",
                     "label": "Content",
                     "type": "rich-text",
-                    "namespace": ["doc", "body", "Admonition", "children"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "Admonition",
+                      "children"
+                    ],
                     "searchable": true,
                     "parser": { "type": "mdx" },
                     "uid": false
                   }
                 ],
-                "namespace": ["doc", "body", "Admonition"]
+                "namespace": ["external_doc", "body", "Admonition"]
               },
               {
                 "name": "Details",
@@ -160,7 +170,7 @@
                     "type": "string",
                     "isTitle": true,
                     "required": true,
-                    "namespace": ["doc", "body", "Details", "summary"],
+                    "namespace": ["external_doc", "body", "Details", "summary"],
                     "searchable": true,
                     "uid": false
                   },
@@ -168,13 +178,18 @@
                     "name": "children",
                     "label": "Details",
                     "type": "rich-text",
-                    "namespace": ["doc", "body", "Details", "children"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "Details",
+                      "children"
+                    ],
                     "searchable": true,
                     "parser": { "type": "mdx" },
                     "uid": false
                   }
                 ],
-                "namespace": ["doc", "body", "Details"]
+                "namespace": ["external_doc", "body", "Details"]
               },
               {
                 "name": "CodeBlock",
@@ -184,7 +199,7 @@
                     "name": "title",
                     "label": "Filename",
                     "type": "string",
-                    "namespace": ["doc", "body", "CodeBlock", "title"],
+                    "namespace": ["external_doc", "body", "CodeBlock", "title"],
                     "searchable": true,
                     "uid": false
                   },
@@ -192,7 +207,12 @@
                     "name": "language",
                     "label": "Language",
                     "type": "string",
-                    "namespace": ["doc", "body", "CodeBlock", "language"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "CodeBlock",
+                      "language"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -201,13 +221,18 @@
                     "label": "Code",
                     "type": "rich-text",
                     "required": true,
-                    "namespace": ["doc", "body", "CodeBlock", "children"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "CodeBlock",
+                      "children"
+                    ],
                     "searchable": true,
                     "parser": { "type": "mdx" },
                     "uid": false
                   }
                 ],
-                "namespace": ["doc", "body", "CodeBlock"]
+                "namespace": ["external_doc", "body", "CodeBlock"]
               },
               {
                 "name": "Tabs",
@@ -231,7 +256,7 @@
                             "isTitle": true,
                             "required": true,
                             "namespace": [
-                              "doc",
+                              "internal_doc",
                               "body",
                               "Tabs",
                               "children",
@@ -244,7 +269,7 @@
                             "type": "string",
                             "ui": {},
                             "namespace": [
-                              "doc",
+                              "internal_doc",
                               "body",
                               "Tabs",
                               "children",
@@ -258,7 +283,7 @@
                             "type": "string",
                             "ui": { "component": "textarea" },
                             "namespace": [
-                              "doc",
+                              "internal_doc",
                               "body",
                               "Tabs",
                               "children",
@@ -268,7 +293,7 @@
                           }
                         ],
                         "namespace": [
-                          "doc",
+                          "internal_doc",
                           "body",
                           "Tabs",
                           "children",
@@ -276,13 +301,13 @@
                         ]
                       }
                     ],
-                    "namespace": ["doc", "body", "Tabs", "children"],
+                    "namespace": ["external_doc", "body", "Tabs", "children"],
                     "searchable": true,
                     "parser": { "type": "mdx" },
                     "uid": false
                   }
                 ],
-                "namespace": ["doc", "body", "Tabs"]
+                "namespace": ["external_doc", "body", "Tabs"]
               },
               {
                 "name": "DocCardList",
@@ -292,26 +317,31 @@
                     "name": "title",
                     "label": "Title",
                     "type": "string",
-                    "namespace": ["doc", "body", "DocCardList", "title"],
+                    "namespace": [
+                      "external_doc",
+                      "body",
+                      "DocCardList",
+                      "title"
+                    ],
                     "searchable": true,
                     "uid": false
                   }
                 ],
-                "namespace": ["doc", "body", "DocCardList"]
+                "namespace": ["external_doc", "body", "DocCardList"]
               }
             ],
-            "namespace": ["doc", "body"],
+            "namespace": ["external_doc", "body"],
             "searchable": true,
             "parser": { "type": "mdx" },
             "uid": false
           }
         ],
-        "namespace": ["doc"]
+        "namespace": ["external_doc"]
       },
       {
         "path": "external-docs/config/sidebar",
-        "name": "sidebar",
-        "label": "Docs Sidebar",
+        "name": "external_sidebar",
+        "label": "External Docs Sidebar",
         "format": "json",
         "ui": {
           "global": true,
@@ -322,7 +352,7 @@
             "type": "string",
             "name": "_warning",
             "ui": {},
-            "namespace": ["sidebar", "_warning"],
+            "namespace": ["external_sidebar", "_warning"],
             "searchable": true,
             "uid": false
           },
@@ -333,7 +363,7 @@
             "required": true,
             "isTitle": true,
             "ui": { "component": "hidden" },
-            "namespace": ["sidebar", "label"],
+            "namespace": ["external_sidebar", "label"],
             "searchable": true,
             "uid": false
           },
@@ -354,7 +384,12 @@
                     "type": "string",
                     "isTitle": true,
                     "required": true,
-                    "namespace": ["sidebar", "items", "category", "title"],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "title"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -367,7 +402,12 @@
                       { "label": "Document", "value": "doc" },
                       { "label": "Generated Index", "value": "generated" }
                     ],
-                    "namespace": ["sidebar", "items", "category", "link"],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "link"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -375,9 +415,14 @@
                     "name": "docLink",
                     "label": "Document",
                     "type": "reference",
-                    "collections": ["doc"],
+                    "collections": ["internal_doc", "external_doc"],
                     "ui": {},
-                    "namespace": ["sidebar", "items", "category", "docLink"],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "docLink"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -399,7 +444,7 @@
                             "isTitle": true,
                             "required": true,
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -420,7 +465,7 @@
                               }
                             ],
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -432,10 +477,10 @@
                             "name": "docLink",
                             "label": "Document",
                             "type": "reference",
-                            "collections": ["doc"],
+                            "collections": ["internal_doc", "external_doc"],
                             "ui": {},
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -461,7 +506,7 @@
                                     "isTitle": true,
                                     "required": true,
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -484,7 +529,7 @@
                                       }
                                     ],
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -498,10 +543,13 @@
                                     "name": "docLink",
                                     "label": "Document",
                                     "type": "reference",
-                                    "collections": ["doc"],
+                                    "collections": [
+                                      "internal_doc",
+                                      "external_doc"
+                                    ],
                                     "ui": {},
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -526,11 +574,14 @@
                                             "label": "Document",
                                             "name": "document",
                                             "type": "reference",
-                                            "collections": ["doc"],
+                                            "collections": [
+                                              "internal_doc",
+                                              "external_doc"
+                                            ],
                                             "isTitle": true,
                                             "required": true,
                                             "namespace": [
-                                              "sidebar",
+                                              "internal_sidebar",
                                               "items",
                                               "category",
                                               "items",
@@ -548,7 +599,7 @@
                                             "description": "By default this is the document title",
                                             "type": "string",
                                             "namespace": [
-                                              "sidebar",
+                                              "internal_sidebar",
                                               "items",
                                               "category",
                                               "items",
@@ -562,7 +613,7 @@
                                           }
                                         ],
                                         "namespace": [
-                                          "sidebar",
+                                          "internal_sidebar",
                                           "items",
                                           "category",
                                           "items",
@@ -585,7 +636,7 @@
                                             "isTitle": true,
                                             "required": true,
                                             "namespace": [
-                                              "sidebar",
+                                              "internal_sidebar",
                                               "items",
                                               "category",
                                               "items",
@@ -603,7 +654,7 @@
                                             "type": "string",
                                             "required": true,
                                             "namespace": [
-                                              "sidebar",
+                                              "internal_sidebar",
                                               "items",
                                               "category",
                                               "items",
@@ -617,7 +668,7 @@
                                           }
                                         ],
                                         "namespace": [
-                                          "sidebar",
+                                          "internal_sidebar",
                                           "items",
                                           "category",
                                           "items",
@@ -630,7 +681,7 @@
                                       }
                                     ],
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -642,7 +693,7 @@
                                   }
                                 ],
                                 "namespace": [
-                                  "sidebar",
+                                  "internal_sidebar",
                                   "items",
                                   "category",
                                   "items",
@@ -660,11 +711,14 @@
                                     "label": "Document",
                                     "name": "document",
                                     "type": "reference",
-                                    "collections": ["doc"],
+                                    "collections": [
+                                      "internal_doc",
+                                      "external_doc"
+                                    ],
                                     "isTitle": true,
                                     "required": true,
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -680,7 +734,7 @@
                                     "description": "By default this is the document title",
                                     "type": "string",
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -692,7 +746,7 @@
                                   }
                                 ],
                                 "namespace": [
-                                  "sidebar",
+                                  "internal_sidebar",
                                   "items",
                                   "category",
                                   "items",
@@ -713,7 +767,7 @@
                                     "isTitle": true,
                                     "required": true,
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -729,7 +783,7 @@
                                     "type": "string",
                                     "required": true,
                                     "namespace": [
-                                      "sidebar",
+                                      "internal_sidebar",
                                       "items",
                                       "category",
                                       "items",
@@ -741,7 +795,7 @@
                                   }
                                 ],
                                 "namespace": [
-                                  "sidebar",
+                                  "internal_sidebar",
                                   "items",
                                   "category",
                                   "items",
@@ -752,7 +806,7 @@
                               }
                             ],
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -762,7 +816,7 @@
                           }
                         ],
                         "namespace": [
-                          "sidebar",
+                          "internal_sidebar",
                           "items",
                           "category",
                           "items",
@@ -778,11 +832,11 @@
                             "label": "Document",
                             "name": "document",
                             "type": "reference",
-                            "collections": ["doc"],
+                            "collections": ["internal_doc", "external_doc"],
                             "isTitle": true,
                             "required": true,
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -796,7 +850,7 @@
                             "description": "By default this is the document title",
                             "type": "string",
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -806,7 +860,7 @@
                           }
                         ],
                         "namespace": [
-                          "sidebar",
+                          "internal_sidebar",
                           "items",
                           "category",
                           "items",
@@ -825,7 +879,7 @@
                             "isTitle": true,
                             "required": true,
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -839,7 +893,7 @@
                             "type": "string",
                             "required": true,
                             "namespace": [
-                              "sidebar",
+                              "internal_sidebar",
                               "items",
                               "category",
                               "items",
@@ -849,7 +903,7 @@
                           }
                         ],
                         "namespace": [
-                          "sidebar",
+                          "internal_sidebar",
                           "items",
                           "category",
                           "items",
@@ -857,12 +911,17 @@
                         ]
                       }
                     ],
-                    "namespace": ["sidebar", "items", "category", "items"],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "items"
+                    ],
                     "searchable": true,
                     "uid": false
                   }
                 ],
-                "namespace": ["sidebar", "items", "category"]
+                "namespace": ["external_sidebar", "items", "category"]
               },
               {
                 "name": "doc",
@@ -873,10 +932,15 @@
                     "label": "Document",
                     "name": "document",
                     "type": "reference",
-                    "collections": ["doc"],
+                    "collections": ["internal_doc", "external_doc"],
                     "isTitle": true,
                     "required": true,
-                    "namespace": ["sidebar", "items", "doc", "document"],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "doc",
+                      "document"
+                    ],
                     "searchable": true,
                     "uid": false
                   },
@@ -885,12 +949,12 @@
                     "label": "Label",
                     "description": "By default this is the document title",
                     "type": "string",
-                    "namespace": ["sidebar", "items", "doc", "label"],
+                    "namespace": ["internal_sidebar", "items", "doc", "label"],
                     "searchable": true,
                     "uid": false
                   }
                 ],
-                "namespace": ["sidebar", "items", "doc"]
+                "namespace": ["external_sidebar", "items", "doc"]
               },
               {
                 "name": "link",
@@ -903,7 +967,7 @@
                     "type": "string",
                     "isTitle": true,
                     "required": true,
-                    "namespace": ["sidebar", "items", "link", "title"],
+                    "namespace": ["internal_sidebar", "items", "link", "title"],
                     "searchable": true,
                     "uid": false
                   },
@@ -912,20 +976,941 @@
                     "label": "URL",
                     "type": "string",
                     "required": true,
-                    "namespace": ["sidebar", "items", "link", "href"],
+                    "namespace": ["internal_sidebar", "items", "link", "href"],
                     "searchable": true,
                     "uid": false
                   }
                 ],
-                "namespace": ["sidebar", "items", "link"]
+                "namespace": ["external_sidebar", "items", "link"]
               }
             ],
-            "namespace": ["sidebar", "items"],
+            "namespace": ["external_sidebar", "items"],
             "searchable": true,
             "uid": false
           }
         ],
-        "namespace": ["sidebar"]
+        "namespace": ["external_sidebar"]
+      },
+      {
+        "path": "internal-docs/docs",
+        "name": "internal_doc",
+        "label": "Internal Docs",
+        "format": "mdx",
+        "fields": [
+          {
+            "type": "string",
+            "name": "title",
+            "label": "Title",
+            "isTitle": true,
+            "required": true,
+            "namespace": ["internal_doc", "title"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "name": "description",
+            "label": "Description",
+            "namespace": ["internal_doc", "description"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "label": "Tags",
+            "name": "tags",
+            "type": "string",
+            "list": true,
+            "ui": { "component": "tags" },
+            "namespace": ["internal_doc", "tags"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "rich-text",
+            "name": "body",
+            "label": "Body",
+            "isBody": true,
+            "templates": [
+              {
+                "name": "Admonition",
+                "ui": { "defaultItem": { "type": "note", "title": "Note" } },
+                "fields": [
+                  {
+                    "name": "type",
+                    "label": "Type",
+                    "type": "string",
+                    "options": [
+                      { "label": "Note", "value": "note" },
+                      { "label": "Tip", "value": "tip" },
+                      { "label": "Info", "value": "info" },
+                      { "label": "Caution", "value": "caution" },
+                      { "label": "Danger", "value": "danger" }
+                    ],
+                    "namespace": ["internal_doc", "body", "Admonition", "type"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "string",
+                    "isTitle": true,
+                    "required": true,
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "Admonition",
+                      "title"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "Admonition",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_doc", "body", "Admonition"]
+              },
+              {
+                "name": "Details",
+                "fields": [
+                  {
+                    "name": "summary",
+                    "label": "Summary",
+                    "type": "string",
+                    "isTitle": true,
+                    "required": true,
+                    "namespace": ["internal_doc", "body", "Details", "summary"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Details",
+                    "type": "rich-text",
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "Details",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_doc", "body", "Details"]
+              },
+              {
+                "name": "CodeBlock",
+                "label": "Code Block",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Filename",
+                    "type": "string",
+                    "namespace": ["internal_doc", "body", "CodeBlock", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "language",
+                    "label": "Language",
+                    "type": "string",
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "CodeBlock",
+                      "language"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Code",
+                    "type": "rich-text",
+                    "required": true,
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "CodeBlock",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_doc", "body", "CodeBlock"]
+              },
+              {
+                "name": "Tabs",
+                "fields": [
+                  {
+                    "name": "children",
+                    "label": "Tabs",
+                    "type": "rich-text",
+                    "templates": [
+                      {
+                        "name": "TabItem",
+                        "label": "Tab",
+                        "ui": {
+                          "defaultItem": { "label": "Tab", "value": "tab" }
+                        },
+                        "fields": [
+                          {
+                            "name": "label",
+                            "label": "Label",
+                            "type": "string",
+                            "isTitle": true,
+                            "required": true,
+                            "namespace": [
+                              "internal_doc",
+                              "body",
+                              "Tabs",
+                              "children",
+                              "TabItem",
+                              "label"
+                            ]
+                          },
+                          {
+                            "name": "value",
+                            "type": "string",
+                            "ui": {},
+                            "namespace": [
+                              "internal_doc",
+                              "body",
+                              "Tabs",
+                              "children",
+                              "TabItem",
+                              "value"
+                            ]
+                          },
+                          {
+                            "name": "children",
+                            "label": "Content",
+                            "type": "string",
+                            "ui": { "component": "textarea" },
+                            "namespace": [
+                              "internal_doc",
+                              "body",
+                              "Tabs",
+                              "children",
+                              "TabItem",
+                              "children"
+                            ]
+                          }
+                        ],
+                        "namespace": [
+                          "internal_doc",
+                          "body",
+                          "Tabs",
+                          "children",
+                          "TabItem"
+                        ]
+                      }
+                    ],
+                    "namespace": ["internal_doc", "body", "Tabs", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_doc", "body", "Tabs"]
+              },
+              {
+                "name": "DocCardList",
+                "label": "Doc Card List",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "string",
+                    "namespace": [
+                      "internal_doc",
+                      "body",
+                      "DocCardList",
+                      "title"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_doc", "body", "DocCardList"]
+              }
+            ],
+            "namespace": ["internal_doc", "body"],
+            "searchable": true,
+            "parser": { "type": "mdx" },
+            "uid": false
+          }
+        ],
+        "namespace": ["internal_doc"]
+      },
+      {
+        "path": "internal-docs/config/sidebar",
+        "name": "internal_sidebar",
+        "label": "Internal Docs Sidebar",
+        "format": "json",
+        "ui": {
+          "global": true,
+          "allowedActions": { "create": false, "delete": false }
+        },
+        "fields": [
+          {
+            "type": "string",
+            "name": "_warning",
+            "ui": {},
+            "namespace": ["internal_sidebar", "_warning"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "label": "Label",
+            "name": "label",
+            "required": true,
+            "isTitle": true,
+            "ui": { "component": "hidden" },
+            "namespace": ["internal_sidebar", "label"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "name": "items",
+            "label": "Items",
+            "type": "object",
+            "list": true,
+            "templates": [
+              {
+                "name": "category",
+                "label": "Category",
+                "ui": { "defaultItem": { "link": "none" } },
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "string",
+                    "isTitle": true,
+                    "required": true,
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "title"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "link",
+                    "label": "Link",
+                    "type": "string",
+                    "options": [
+                      { "label": "None", "value": "none" },
+                      { "label": "Document", "value": "doc" },
+                      { "label": "Generated Index", "value": "generated" }
+                    ],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "link"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "docLink",
+                    "label": "Document",
+                    "type": "reference",
+                    "collections": ["internal_doc", "external_doc"],
+                    "ui": {},
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "docLink"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "items",
+                    "label": "Items",
+                    "type": "object",
+                    "list": true,
+                    "templates": [
+                      {
+                        "name": "category",
+                        "label": "Category",
+                        "ui": { "defaultItem": { "link": "none" } },
+                        "fields": [
+                          {
+                            "name": "title",
+                            "label": "Title",
+                            "type": "string",
+                            "isTitle": true,
+                            "required": true,
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "category",
+                              "title"
+                            ]
+                          },
+                          {
+                            "name": "link",
+                            "label": "Link",
+                            "type": "string",
+                            "options": [
+                              { "label": "None", "value": "none" },
+                              { "label": "Document", "value": "doc" },
+                              {
+                                "label": "Generated Index",
+                                "value": "generated"
+                              }
+                            ],
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "category",
+                              "link"
+                            ]
+                          },
+                          {
+                            "name": "docLink",
+                            "label": "Document",
+                            "type": "reference",
+                            "collections": ["internal_doc", "external_doc"],
+                            "ui": {},
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "category",
+                              "docLink"
+                            ]
+                          },
+                          {
+                            "name": "items",
+                            "label": "Items",
+                            "type": "object",
+                            "list": true,
+                            "templates": [
+                              {
+                                "name": "category",
+                                "label": "Category",
+                                "ui": { "defaultItem": { "link": "none" } },
+                                "fields": [
+                                  {
+                                    "name": "title",
+                                    "label": "Title",
+                                    "type": "string",
+                                    "isTitle": true,
+                                    "required": true,
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "title"
+                                    ]
+                                  },
+                                  {
+                                    "name": "link",
+                                    "label": "Link",
+                                    "type": "string",
+                                    "options": [
+                                      { "label": "None", "value": "none" },
+                                      { "label": "Document", "value": "doc" },
+                                      {
+                                        "label": "Generated Index",
+                                        "value": "generated"
+                                      }
+                                    ],
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "link"
+                                    ]
+                                  },
+                                  {
+                                    "name": "docLink",
+                                    "label": "Document",
+                                    "type": "reference",
+                                    "collections": [
+                                      "internal_doc",
+                                      "external_doc"
+                                    ],
+                                    "ui": {},
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "docLink"
+                                    ]
+                                  },
+                                  {
+                                    "name": "items",
+                                    "label": "Items",
+                                    "type": "object",
+                                    "list": true,
+                                    "templates": [
+                                      {
+                                        "name": "doc",
+                                        "label": "Doc Link",
+                                        "ui": {},
+                                        "fields": [
+                                          {
+                                            "label": "Document",
+                                            "name": "document",
+                                            "type": "reference",
+                                            "collections": [
+                                              "internal_doc",
+                                              "external_doc"
+                                            ],
+                                            "isTitle": true,
+                                            "required": true,
+                                            "namespace": [
+                                              "internal_sidebar",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "doc",
+                                              "document"
+                                            ]
+                                          },
+                                          {
+                                            "name": "label",
+                                            "label": "Label",
+                                            "description": "By default this is the document title",
+                                            "type": "string",
+                                            "namespace": [
+                                              "internal_sidebar",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "doc",
+                                              "label"
+                                            ]
+                                          }
+                                        ],
+                                        "namespace": [
+                                          "internal_sidebar",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "doc"
+                                        ]
+                                      },
+                                      {
+                                        "name": "link",
+                                        "label": "External Link",
+                                        "ui": {},
+                                        "fields": [
+                                          {
+                                            "name": "title",
+                                            "label": "Label",
+                                            "type": "string",
+                                            "isTitle": true,
+                                            "required": true,
+                                            "namespace": [
+                                              "internal_sidebar",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "link",
+                                              "title"
+                                            ]
+                                          },
+                                          {
+                                            "name": "href",
+                                            "label": "URL",
+                                            "type": "string",
+                                            "required": true,
+                                            "namespace": [
+                                              "internal_sidebar",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "category",
+                                              "items",
+                                              "link",
+                                              "href"
+                                            ]
+                                          }
+                                        ],
+                                        "namespace": [
+                                          "internal_sidebar",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "category",
+                                          "items",
+                                          "link"
+                                        ]
+                                      }
+                                    ],
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items"
+                                    ]
+                                  }
+                                ],
+                                "namespace": [
+                                  "internal_sidebar",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "category"
+                                ]
+                              },
+                              {
+                                "name": "doc",
+                                "label": "Doc Link",
+                                "ui": {},
+                                "fields": [
+                                  {
+                                    "label": "Document",
+                                    "name": "document",
+                                    "type": "reference",
+                                    "collections": [
+                                      "internal_doc",
+                                      "external_doc"
+                                    ],
+                                    "isTitle": true,
+                                    "required": true,
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "doc",
+                                      "document"
+                                    ]
+                                  },
+                                  {
+                                    "name": "label",
+                                    "label": "Label",
+                                    "description": "By default this is the document title",
+                                    "type": "string",
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "doc",
+                                      "label"
+                                    ]
+                                  }
+                                ],
+                                "namespace": [
+                                  "internal_sidebar",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "doc"
+                                ]
+                              },
+                              {
+                                "name": "link",
+                                "label": "External Link",
+                                "ui": {},
+                                "fields": [
+                                  {
+                                    "name": "title",
+                                    "label": "Label",
+                                    "type": "string",
+                                    "isTitle": true,
+                                    "required": true,
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "link",
+                                      "title"
+                                    ]
+                                  },
+                                  {
+                                    "name": "href",
+                                    "label": "URL",
+                                    "type": "string",
+                                    "required": true,
+                                    "namespace": [
+                                      "internal_sidebar",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "category",
+                                      "items",
+                                      "link",
+                                      "href"
+                                    ]
+                                  }
+                                ],
+                                "namespace": [
+                                  "internal_sidebar",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "category",
+                                  "items",
+                                  "link"
+                                ]
+                              }
+                            ],
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "category",
+                              "items"
+                            ]
+                          }
+                        ],
+                        "namespace": [
+                          "internal_sidebar",
+                          "items",
+                          "category",
+                          "items",
+                          "category"
+                        ]
+                      },
+                      {
+                        "name": "doc",
+                        "label": "Doc Link",
+                        "ui": {},
+                        "fields": [
+                          {
+                            "label": "Document",
+                            "name": "document",
+                            "type": "reference",
+                            "collections": ["internal_doc", "external_doc"],
+                            "isTitle": true,
+                            "required": true,
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "doc",
+                              "document"
+                            ]
+                          },
+                          {
+                            "name": "label",
+                            "label": "Label",
+                            "description": "By default this is the document title",
+                            "type": "string",
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "doc",
+                              "label"
+                            ]
+                          }
+                        ],
+                        "namespace": [
+                          "internal_sidebar",
+                          "items",
+                          "category",
+                          "items",
+                          "doc"
+                        ]
+                      },
+                      {
+                        "name": "link",
+                        "label": "External Link",
+                        "ui": {},
+                        "fields": [
+                          {
+                            "name": "title",
+                            "label": "Label",
+                            "type": "string",
+                            "isTitle": true,
+                            "required": true,
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "link",
+                              "title"
+                            ]
+                          },
+                          {
+                            "name": "href",
+                            "label": "URL",
+                            "type": "string",
+                            "required": true,
+                            "namespace": [
+                              "internal_sidebar",
+                              "items",
+                              "category",
+                              "items",
+                              "link",
+                              "href"
+                            ]
+                          }
+                        ],
+                        "namespace": [
+                          "internal_sidebar",
+                          "items",
+                          "category",
+                          "items",
+                          "link"
+                        ]
+                      }
+                    ],
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "category",
+                      "items"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_sidebar", "items", "category"]
+              },
+              {
+                "name": "doc",
+                "label": "Doc Link",
+                "ui": {},
+                "fields": [
+                  {
+                    "label": "Document",
+                    "name": "document",
+                    "type": "reference",
+                    "collections": ["internal_doc", "external_doc"],
+                    "isTitle": true,
+                    "required": true,
+                    "namespace": [
+                      "internal_sidebar",
+                      "items",
+                      "doc",
+                      "document"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "label",
+                    "label": "Label",
+                    "description": "By default this is the document title",
+                    "type": "string",
+                    "namespace": ["internal_sidebar", "items", "doc", "label"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_sidebar", "items", "doc"]
+              },
+              {
+                "name": "link",
+                "label": "External Link",
+                "ui": {},
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Label",
+                    "type": "string",
+                    "isTitle": true,
+                    "required": true,
+                    "namespace": ["internal_sidebar", "items", "link", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "href",
+                    "label": "URL",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["internal_sidebar", "items", "link", "href"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["internal_sidebar", "items", "link"]
+              }
+            ],
+            "namespace": ["internal_sidebar", "items"],
+            "searchable": true,
+            "uid": false
+          }
+        ],
+        "namespace": ["internal_sidebar"]
       }
     ],
     "config": {
@@ -938,7 +1923,13 @@
     "DocumentConnection": {
       "type": "DocumentConnection",
       "resolveType": "multiCollectionDocumentList",
-      "collections": ["user", "doc", "sidebar"]
+      "collections": [
+        "user",
+        "external_doc",
+        "external_sidebar",
+        "internal_doc",
+        "internal_sidebar"
+      ]
     },
     "Node": { "type": "Node", "resolveType": "nodeDocument" },
     "DocumentNode": {
@@ -959,106 +1950,139 @@
       "resolveType": "collectionDocumentList",
       "collection": "user"
     },
-    "Doc": {
-      "type": "Doc",
+    "External_doc": {
+      "type": "External_doc",
       "resolveType": "collectionDocument",
-      "collection": "doc",
-      "createDoc": "create",
-      "updateDoc": "update"
+      "collection": "external_doc",
+      "createExternal_doc": "create",
+      "updateExternal_doc": "update"
     },
-    "DocConnection": {
-      "type": "DocConnection",
+    "External_docConnection": {
+      "type": "External_docConnection",
       "resolveType": "collectionDocumentList",
-      "collection": "doc"
+      "collection": "external_doc"
     },
-    "SidebarItemsCategoryDocLink": {
-      "type": "SidebarItemsCategoryDocLink",
+    "Internal_sidebarItemsCategoryDocLink": {
+      "type": "Internal_sidebarItemsCategoryDocLink",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItemsCategoryDocLink": {
-      "type": "SidebarItemsCategoryItemsCategoryDocLink",
+    "Internal_sidebarItemsCategoryItemsCategoryDocLink": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryDocLink",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItemsCategoryItemsCategoryDocLink": {
-      "type": "SidebarItemsCategoryItemsCategoryItemsCategoryDocLink",
+    "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLink": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLink",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument": {
-      "type": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument",
+    "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItemsCategoryItemsCategoryItems": {
-      "type": "SidebarItemsCategoryItemsCategoryItemsCategoryItems",
+    "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItems": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItems",
       "resolveType": "unionData",
       "typeMap": {
-        "doc": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc",
-        "link": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
+        "doc": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc",
+        "link": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
       }
     },
-    "SidebarItemsCategoryItemsCategoryItemsDocDocument": {
-      "type": "SidebarItemsCategoryItemsCategoryItemsDocDocument",
+    "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocument": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocument",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItemsCategoryItems": {
-      "type": "SidebarItemsCategoryItemsCategoryItems",
+    "Internal_sidebarItemsCategoryItemsCategoryItems": {
+      "type": "Internal_sidebarItemsCategoryItemsCategoryItems",
       "resolveType": "unionData",
       "typeMap": {
-        "category": "SidebarItemsCategoryItemsCategoryItemsCategory",
-        "doc": "SidebarItemsCategoryItemsCategoryItemsDoc",
-        "link": "SidebarItemsCategoryItemsCategoryItemsLink"
+        "category": "Internal_sidebarItemsCategoryItemsCategoryItemsCategory",
+        "doc": "Internal_sidebarItemsCategoryItemsCategoryItemsDoc",
+        "link": "Internal_sidebarItemsCategoryItemsCategoryItemsLink"
       }
     },
-    "SidebarItemsCategoryItemsDocDocument": {
-      "type": "SidebarItemsCategoryItemsDocDocument",
+    "Internal_sidebarItemsCategoryItemsDocDocument": {
+      "type": "Internal_sidebarItemsCategoryItemsDocDocument",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItemsCategoryItems": {
-      "type": "SidebarItemsCategoryItems",
+    "Internal_sidebarItemsCategoryItems": {
+      "type": "Internal_sidebarItemsCategoryItems",
       "resolveType": "unionData",
       "typeMap": {
-        "category": "SidebarItemsCategoryItemsCategory",
-        "doc": "SidebarItemsCategoryItemsDoc",
-        "link": "SidebarItemsCategoryItemsLink"
+        "category": "Internal_sidebarItemsCategoryItemsCategory",
+        "doc": "Internal_sidebarItemsCategoryItemsDoc",
+        "link": "Internal_sidebarItemsCategoryItemsLink"
       }
     },
-    "SidebarItemsDocDocument": {
-      "type": "SidebarItemsDocDocument",
+    "Internal_sidebarItemsDocDocument": {
+      "type": "Internal_sidebarItemsDocDocument",
       "resolveType": "multiCollectionDocument",
       "createDocument": "create",
       "updateDocument": "update"
     },
-    "SidebarItems": {
-      "type": "SidebarItems",
+    "External_sidebarItems": {
+      "type": "External_sidebarItems",
       "resolveType": "unionData",
       "typeMap": {
-        "category": "SidebarItemsCategory",
-        "doc": "SidebarItemsDoc",
-        "link": "SidebarItemsLink"
+        "category": "External_sidebarItemsCategory",
+        "doc": "External_sidebarItemsDoc",
+        "link": "External_sidebarItemsLink"
       }
     },
-    "Sidebar": {
-      "type": "Sidebar",
+    "External_sidebar": {
+      "type": "External_sidebar",
       "resolveType": "collectionDocument",
-      "collection": "sidebar",
-      "createSidebar": "create",
-      "updateSidebar": "update"
+      "collection": "external_sidebar",
+      "createExternal_sidebar": "create",
+      "updateExternal_sidebar": "update"
     },
-    "SidebarConnection": {
-      "type": "SidebarConnection",
+    "External_sidebarConnection": {
+      "type": "External_sidebarConnection",
       "resolveType": "collectionDocumentList",
-      "collection": "sidebar"
+      "collection": "external_sidebar"
+    },
+    "Internal_doc": {
+      "type": "Internal_doc",
+      "resolveType": "collectionDocument",
+      "collection": "internal_doc",
+      "createInternal_doc": "create",
+      "updateInternal_doc": "update"
+    },
+    "Internal_docConnection": {
+      "type": "Internal_docConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "internal_doc"
+    },
+    "Internal_sidebarItems": {
+      "type": "Internal_sidebarItems",
+      "resolveType": "unionData",
+      "typeMap": {
+        "category": "Internal_sidebarItemsCategory",
+        "doc": "Internal_sidebarItemsDoc",
+        "link": "Internal_sidebarItemsLink"
+      }
+    },
+    "Internal_sidebar": {
+      "type": "Internal_sidebar",
+      "resolveType": "collectionDocument",
+      "collection": "internal_sidebar",
+      "createInternal_sidebar": "create",
+      "updateInternal_sidebar": "update"
+    },
+    "Internal_sidebarConnection": {
+      "type": "Internal_sidebarConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "internal_sidebar"
     }
   },
   "graphql": {
@@ -1635,7 +2659,7 @@
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -1650,13 +2674,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Doc" }
+                "name": { "kind": "Name", "value": "External_doc" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "docConnection" },
+            "name": { "kind": "Name", "value": "external_docConnection" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -1703,7 +2727,7 @@
                 "name": { "kind": "Name", "value": "filter" },
                 "type": {
                   "kind": "NamedType",
-                  "name": { "kind": "Name", "value": "DocFilter" }
+                  "name": { "kind": "Name", "value": "External_docFilter" }
                 }
               }
             ],
@@ -1711,13 +2735,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "DocConnection" }
+                "name": { "kind": "Name", "value": "External_docConnection" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "sidebar" },
+            "name": { "kind": "Name", "value": "external_sidebar" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -1732,13 +2756,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Sidebar" }
+                "name": { "kind": "Name", "value": "External_sidebar" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "sidebarConnection" },
+            "name": { "kind": "Name", "value": "external_sidebarConnection" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -1785,7 +2809,7 @@
                 "name": { "kind": "Name", "value": "filter" },
                 "type": {
                   "kind": "NamedType",
-                  "name": { "kind": "Name", "value": "SidebarFilter" }
+                  "name": { "kind": "Name", "value": "External_sidebarFilter" }
                 }
               }
             ],
@@ -1793,7 +2817,177 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarConnection" }
+                "name": {
+                  "kind": "Name",
+                  "value": "External_sidebarConnection"
+                }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_doc" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "internal_docConnection" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "before" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "after" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "first" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "last" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "sort" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "filter" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Internal_docFilter" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_docConnection" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "internal_sidebar" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_sidebar" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "internal_sidebarConnection" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "before" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "after" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "first" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "last" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "sort" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "filter" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Internal_sidebarFilter" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarConnection"
+                }
               }
             }
           }
@@ -1813,18 +3007,34 @@
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
             }
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "sidebar" },
+            "name": { "kind": "Name", "value": "external_sidebar" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarFilter" }
+              "name": { "kind": "Name", "value": "External_sidebarFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_sidebar" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_sidebarFilter" }
             }
           }
         ]
@@ -2077,10 +3287,21 @@
         "directives": [],
         "types": [
           { "kind": "NamedType", "name": { "kind": "Name", "value": "User" } },
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } },
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "Sidebar" }
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_sidebar" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_sidebar" }
           },
           { "kind": "NamedType", "name": { "kind": "Name", "value": "Folder" } }
         ]
@@ -2399,7 +3620,7 @@
           }
         ],
         "directives": [],
-        "name": { "kind": "Name", "value": "Doc" },
+        "name": { "kind": "Name", "value": "External_doc" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -2513,7 +3734,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyAdmonitionFilter" },
+        "name": { "kind": "Name", "value": "External_docBodyAdmonitionFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2543,7 +3764,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyDetailsFilter" },
+        "name": { "kind": "Name", "value": "External_docBodyDetailsFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2565,7 +3786,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyCodeBlockFilter" },
+        "name": { "kind": "Name", "value": "External_docBodyCodeBlockFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2595,7 +3816,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyTabsChildrenTabItemFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_docBodyTabsChildrenTabItemFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2625,7 +3849,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyTabsChildrenFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "External_docBodyTabsChildrenFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2634,7 +3861,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "DocBodyTabsChildrenTabItemFilter"
+                "value": "Internal_docBodyTabsChildrenTabItemFilter"
               }
             }
           }
@@ -2642,21 +3869,27 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyTabsFilter" },
+        "name": { "kind": "Name", "value": "External_docBodyTabsFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "children" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyTabsChildrenFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_docBodyTabsChildrenFilter"
+              }
             }
           }
         ]
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyDocCardListFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "External_docBodyDocCardListFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2670,14 +3903,17 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocBodyFilter" },
+        "name": { "kind": "Name", "value": "External_docBodyFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "Admonition" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyAdmonitionFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_docBodyAdmonitionFilter"
+              }
             }
           },
           {
@@ -2685,7 +3921,10 @@
             "name": { "kind": "Name", "value": "Details" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyDetailsFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_docBodyDetailsFilter"
+              }
             }
           },
           {
@@ -2693,7 +3932,10 @@
             "name": { "kind": "Name", "value": "CodeBlock" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyCodeBlockFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_docBodyCodeBlockFilter"
+              }
             }
           },
           {
@@ -2701,7 +3943,7 @@
             "name": { "kind": "Name", "value": "Tabs" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyTabsFilter" }
+              "name": { "kind": "Name", "value": "External_docBodyTabsFilter" }
             }
           },
           {
@@ -2709,14 +3951,17 @@
             "name": { "kind": "Name", "value": "DocCardList" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyDocCardListFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_docBodyDocCardListFilter"
+              }
             }
           }
         ]
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocFilter" },
+        "name": { "kind": "Name", "value": "External_docFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -2747,7 +3992,7 @@
             "name": { "kind": "Name", "value": "body" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocBodyFilter" }
+              "name": { "kind": "Name", "value": "External_docBodyFilter" }
             }
           }
         ]
@@ -2756,7 +4001,7 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "DocConnectionEdges" },
+        "name": { "kind": "Name", "value": "External_docConnectionEdges" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -2776,7 +4021,7 @@
             "arguments": [],
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "Doc" }
+              "name": { "kind": "Name", "value": "External_doc" }
             }
           }
         ]
@@ -2790,7 +4035,7 @@
           }
         ],
         "directives": [],
-        "name": { "kind": "Name", "value": "DocConnection" },
+        "name": { "kind": "Name", "value": "External_docConnection" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -2824,7 +4069,10 @@
               "kind": "ListType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "DocConnectionEdges" }
+                "name": {
+                  "kind": "Name",
+                  "value": "External_docConnectionEdges"
+                }
               }
             }
           }
@@ -2832,43 +4080,74 @@
       },
       {
         "kind": "UnionTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryDocLink" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryDocLink"
+        },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryDocLink"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryDocLink"
         },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryDocLink"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLink"
         },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument"
         },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
@@ -2877,7 +4156,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc"
         },
         "fields": [
           {
@@ -2890,7 +4169,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocument"
                 }
               }
             }
@@ -2912,7 +4191,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
         },
         "fields": [
           {
@@ -2945,7 +4224,7 @@
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItems"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItems"
         },
         "directives": [],
         "types": [
@@ -2953,14 +4232,14 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc"
+              "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc"
             }
           },
           {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
+              "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLink"
             }
           }
         ]
@@ -2971,7 +4250,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategory"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategory"
         },
         "fields": [
           {
@@ -3003,7 +4282,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryDocLink"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLink"
               }
             }
           },
@@ -3017,7 +4296,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItems"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItems"
                 }
               }
             }
@@ -3028,11 +4307,18 @@
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsDocDocument"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocument"
         },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
@@ -3041,7 +4327,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsDoc"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDoc"
         },
         "fields": [
           {
@@ -3054,7 +4340,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItemsDocDocument"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocument"
                 }
               }
             }
@@ -3076,7 +4362,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsLink"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLink"
         },
         "fields": [
           {
@@ -3109,7 +4395,7 @@
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItems"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItems"
         },
         "directives": [],
         "types": [
@@ -3117,21 +4403,21 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategoryItemsCategory"
+              "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategory"
             }
           },
           {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategoryItemsDoc"
+              "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDoc"
             }
           },
           {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategoryItemsLink"
+              "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLink"
             }
           }
         ]
@@ -3142,7 +4428,7 @@
         "directives": [],
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategory"
+          "value": "Internal_sidebarItemsCategoryItemsCategory"
         },
         "fields": [
           {
@@ -3174,7 +4460,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryDocLink"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryDocLink"
               }
             }
           },
@@ -3188,7 +4474,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItems"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItems"
                 }
               }
             }
@@ -3199,18 +4485,28 @@
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsDocDocument"
+          "value": "Internal_sidebarItemsCategoryItemsDocDocument"
         },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryItemsDoc" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryItemsDoc"
+        },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3222,7 +4518,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsDocDocument"
+                  "value": "Internal_sidebarItemsCategoryItemsDocDocument"
                 }
               }
             }
@@ -3242,7 +4538,10 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryItemsLink" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryItemsLink"
+        },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3272,23 +4571,32 @@
       },
       {
         "kind": "UnionTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryItems" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryItems"
+        },
         "directives": [],
         "types": [
           {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "SidebarItemsCategoryItemsCategory"
+              "value": "Internal_sidebarItemsCategoryItemsCategory"
             }
           },
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "SidebarItemsCategoryItemsDoc" }
+            "name": {
+              "kind": "Name",
+              "value": "Internal_sidebarItemsCategoryItemsDoc"
+            }
           },
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "SidebarItemsCategoryItemsLink" }
+            "name": {
+              "kind": "Name",
+              "value": "Internal_sidebarItemsCategoryItemsLink"
+            }
           }
         ]
       },
@@ -3296,7 +4604,7 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarItemsCategory" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsCategory" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3325,7 +4633,10 @@
             "arguments": [],
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsCategoryDocLink" }
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryDocLink"
+              }
             }
           },
           {
@@ -3336,7 +4647,10 @@
               "kind": "ListType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarItemsCategoryItems" }
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsCategoryItems"
+                }
               }
             }
           }
@@ -3344,17 +4658,24 @@
       },
       {
         "kind": "UnionTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsDocDocument" },
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsDocDocument" },
         "directives": [],
         "types": [
-          { "kind": "NamedType", "name": { "kind": "Name", "value": "Doc" } }
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "External_doc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_doc" }
+          }
         ]
       },
       {
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarItemsDoc" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsDoc" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3364,7 +4685,10 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarItemsDocDocument" }
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsDocDocument"
+                }
               }
             }
           },
@@ -3383,7 +4707,7 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarItemsLink" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsLink" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3413,20 +4737,20 @@
       },
       {
         "kind": "UnionTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItems" },
+        "name": { "kind": "Name", "value": "External_sidebarItems" },
         "directives": [],
         "types": [
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "SidebarItemsCategory" }
+            "name": { "kind": "Name", "value": "External_sidebarItemsCategory" }
           },
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "SidebarItemsDoc" }
+            "name": { "kind": "Name", "value": "External_sidebarItemsDoc" }
           },
           {
             "kind": "NamedType",
-            "name": { "kind": "Name", "value": "SidebarItemsLink" }
+            "name": { "kind": "Name", "value": "External_sidebarItemsLink" }
           }
         ]
       },
@@ -3440,7 +4764,7 @@
           }
         ],
         "directives": [],
-        "name": { "kind": "Name", "value": "Sidebar" },
+        "name": { "kind": "Name", "value": "External_sidebar" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -3471,7 +4795,7 @@
               "kind": "ListType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarItems" }
+                "name": { "kind": "Name", "value": "External_sidebarItems" }
               }
             }
           },
@@ -3517,15 +4841,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryDocLinkFilter"
+          "value": "Internal_sidebarItemsCategoryDocLinkFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3534,15 +4866,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryDocLinkFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryDocLinkFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3551,15 +4891,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryDocLinkFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLinkFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3568,15 +4916,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocumentFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocumentFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3585,7 +4941,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocFilter"
         },
         "fields": [
           {
@@ -3595,7 +4951,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocumentFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocDocumentFilter"
               }
             }
           },
@@ -3613,7 +4969,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkFilter"
         },
         "fields": [
           {
@@ -3638,7 +4994,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsFilter"
         },
         "fields": [
           {
@@ -3648,7 +5004,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocFilter"
               }
             }
           },
@@ -3659,7 +5015,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkFilter"
               }
             }
           }
@@ -3669,7 +5025,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryFilter"
         },
         "fields": [
           {
@@ -3695,7 +5051,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryDocLinkFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryDocLinkFilter"
               }
             }
           },
@@ -3706,7 +5062,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsFilter"
               }
             }
           }
@@ -3716,15 +5072,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsDocDocumentFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocumentFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3733,7 +5097,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsDocFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocFilter"
         },
         "fields": [
           {
@@ -3743,7 +5107,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsDocDocumentFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocDocumentFilter"
               }
             }
           },
@@ -3761,7 +5125,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsLinkFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLinkFilter"
         },
         "fields": [
           {
@@ -3786,7 +5150,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsFilter"
         },
         "fields": [
           {
@@ -3796,7 +5160,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryFilter"
               }
             }
           },
@@ -3807,7 +5171,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsDocFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocFilter"
               }
             }
           },
@@ -3818,7 +5182,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsLinkFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLinkFilter"
               }
             }
           }
@@ -3828,7 +5192,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryFilter"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryFilter"
         },
         "fields": [
           {
@@ -3854,7 +5218,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryDocLinkFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryDocLinkFilter"
               }
             }
           },
@@ -3865,7 +5229,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsFilter"
               }
             }
           }
@@ -3875,15 +5239,23 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsDocDocumentFilter"
+          "value": "Internal_sidebarItemsCategoryItemsDocDocumentFilter"
         },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
@@ -3892,7 +5264,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsDocFilter"
+          "value": "Internal_sidebarItemsCategoryItemsDocFilter"
         },
         "fields": [
           {
@@ -3902,7 +5274,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsDocDocumentFilter"
+                "value": "Internal_sidebarItemsCategoryItemsDocDocumentFilter"
               }
             }
           },
@@ -3920,7 +5292,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsLinkFilter"
+          "value": "Internal_sidebarItemsCategoryItemsLinkFilter"
         },
         "fields": [
           {
@@ -3943,7 +5315,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryItemsFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryItemsFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -3952,7 +5327,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryFilter"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryFilter"
               }
             }
           },
@@ -3963,7 +5338,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsDocFilter"
+                "value": "Internal_sidebarItemsCategoryItemsDocFilter"
               }
             }
           },
@@ -3974,7 +5349,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsLinkFilter"
+                "value": "Internal_sidebarItemsCategoryItemsLinkFilter"
               }
             }
           }
@@ -3982,7 +5357,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "External_sidebarItemsCategoryFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -4007,7 +5385,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryDocLinkFilter"
+                "value": "Internal_sidebarItemsCategoryDocLinkFilter"
               }
             }
           },
@@ -4018,7 +5396,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsFilter"
+                "value": "Internal_sidebarItemsCategoryItemsFilter"
               }
             }
           }
@@ -4026,21 +5404,32 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsDocDocumentFilter" },
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsDocDocumentFilter"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocFilter" }
+              "name": { "kind": "Name", "value": "External_docFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docFilter" }
             }
           }
         ]
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsDocFilter" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsDocFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -4049,7 +5438,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsDocDocumentFilter"
+                "value": "Internal_sidebarItemsDocDocumentFilter"
               }
             }
           },
@@ -4065,7 +5454,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsLinkFilter" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsLinkFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -4087,14 +5476,17 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsFilter" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "category" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsCategoryFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_sidebarItemsCategoryFilter"
+              }
             }
           },
           {
@@ -4102,7 +5494,10 @@
             "name": { "kind": "Name", "value": "doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsDocFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_sidebarItemsDocFilter"
+              }
             }
           },
           {
@@ -4110,14 +5505,17 @@
             "name": { "kind": "Name", "value": "link" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsLinkFilter" }
+              "name": {
+                "kind": "Name",
+                "value": "External_sidebarItemsLinkFilter"
+              }
             }
           }
         ]
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarFilter" },
+        "name": { "kind": "Name", "value": "External_sidebarFilter" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -4140,7 +5538,7 @@
             "name": { "kind": "Name", "value": "items" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsFilter" }
+              "name": { "kind": "Name", "value": "External_sidebarItemsFilter" }
             }
           }
         ]
@@ -4149,7 +5547,7 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarConnectionEdges" },
+        "name": { "kind": "Name", "value": "External_sidebarConnectionEdges" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -4169,7 +5567,7 @@
             "arguments": [],
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "Sidebar" }
+              "name": { "kind": "Name", "value": "External_sidebar" }
             }
           }
         ]
@@ -4183,7 +5581,7 @@
           }
         ],
         "directives": [],
-        "name": { "kind": "Name", "value": "SidebarConnection" },
+        "name": { "kind": "Name", "value": "External_sidebarConnection" },
         "fields": [
           {
             "kind": "FieldDefinition",
@@ -4217,7 +5615,881 @@
               "kind": "ListType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarConnectionEdges" }
+                "name": {
+                  "kind": "Name",
+                  "value": "External_sidebarConnectionEdges"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          { "kind": "NamedType", "name": { "kind": "Name", "value": "Node" } },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Document" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_doc" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "tags" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "body" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "JSON" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_sys" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "SystemInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_values" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docBodyAdmonitionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "type" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docBodyDetailsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "summary" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docBodyCodeBlockFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "language" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "Internal_docBodyTabsChildrenFilter"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "TabItem" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyTabsChildrenTabItemFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docBodyTabsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyTabsChildrenFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "Internal_docBodyDocCardListFilter"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docBodyFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Admonition" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyAdmonitionFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Details" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyDetailsFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "CodeBlock" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyCodeBlockFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Tabs" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docBodyTabsFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "DocCardList" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_docBodyDocCardListFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "tags" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "body" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docBodyFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_docConnectionEdges" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "cursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_doc" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Connection" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_docConnection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "edges" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_docConnectionEdges"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsCategory" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "link" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "docLink" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryDocLink"
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsCategoryItems"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsDoc" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "document" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsDocDocument"
+                }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsLink" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "href" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "UnionTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItems" },
+        "directives": [],
+        "types": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_sidebarItemsCategory" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_sidebarItemsDoc" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Internal_sidebarItemsLink" }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          { "kind": "NamedType", "name": { "kind": "Name", "value": "Node" } },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Document" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebar" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_warning" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_sidebarItems" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_sys" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "SystemInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_values" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryFilter"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "link" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "docLink" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryDocLinkFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryItemsFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsDocFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "document" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsDocDocumentFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsLinkFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "href" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "category" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsDocFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "link" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsLinkFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "_warning" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_sidebarItemsFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebarConnectionEdges" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "cursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_sidebar" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Connection" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Internal_sidebarConnection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "edges" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarConnectionEdges"
+                }
               }
             }
           }
@@ -4521,7 +6793,7 @@
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "updateDoc" },
+            "name": { "kind": "Name", "value": "updateExternal_doc" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -4541,7 +6813,7 @@
                   "kind": "NonNullType",
                   "type": {
                     "kind": "NamedType",
-                    "name": { "kind": "Name", "value": "DocMutation" }
+                    "name": { "kind": "Name", "value": "External_docMutation" }
                   }
                 }
               }
@@ -4550,13 +6822,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Doc" }
+                "name": { "kind": "Name", "value": "External_doc" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "createDoc" },
+            "name": { "kind": "Name", "value": "createExternal_doc" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -4576,7 +6848,7 @@
                   "kind": "NonNullType",
                   "type": {
                     "kind": "NamedType",
-                    "name": { "kind": "Name", "value": "DocMutation" }
+                    "name": { "kind": "Name", "value": "External_docMutation" }
                   }
                 }
               }
@@ -4585,13 +6857,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Doc" }
+                "name": { "kind": "Name", "value": "External_doc" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "updateSidebar" },
+            "name": { "kind": "Name", "value": "updateExternal_sidebar" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -4611,7 +6883,10 @@
                   "kind": "NonNullType",
                   "type": {
                     "kind": "NamedType",
-                    "name": { "kind": "Name", "value": "SidebarMutation" }
+                    "name": {
+                      "kind": "Name",
+                      "value": "External_sidebarMutation"
+                    }
                   }
                 }
               }
@@ -4620,13 +6895,13 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Sidebar" }
+                "name": { "kind": "Name", "value": "External_sidebar" }
               }
             }
           },
           {
             "kind": "FieldDefinition",
-            "name": { "kind": "Name", "value": "createSidebar" },
+            "name": { "kind": "Name", "value": "createExternal_sidebar" },
             "arguments": [
               {
                 "kind": "InputValueDefinition",
@@ -4646,7 +6921,10 @@
                   "kind": "NonNullType",
                   "type": {
                     "kind": "NamedType",
-                    "name": { "kind": "Name", "value": "SidebarMutation" }
+                    "name": {
+                      "kind": "Name",
+                      "value": "External_sidebarMutation"
+                    }
                   }
                 }
               }
@@ -4655,7 +6933,153 @@
               "kind": "NonNullType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "Sidebar" }
+                "name": { "kind": "Name", "value": "External_sidebar" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "updateInternal_doc" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "Internal_docMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_doc" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "createInternal_doc" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "Internal_docMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_doc" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "updateInternal_sidebar" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": {
+                      "kind": "Name",
+                      "value": "Internal_sidebarMutation"
+                    }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_sidebar" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "createInternal_sidebar" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": {
+                      "kind": "Name",
+                      "value": "Internal_sidebarMutation"
+                    }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Internal_sidebar" }
               }
             }
           }
@@ -4675,18 +7099,34 @@
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocMutation" }
+              "name": { "kind": "Name", "value": "External_docMutation" }
             }
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "sidebar" },
+            "name": { "kind": "Name", "value": "external_sidebar" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarMutation" }
+              "name": { "kind": "Name", "value": "External_sidebarMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_sidebar" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_sidebarMutation" }
             }
           },
           {
@@ -4713,18 +7153,34 @@
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "doc" },
+            "name": { "kind": "Name", "value": "external_doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocMutation" }
+              "name": { "kind": "Name", "value": "External_docMutation" }
             }
           },
           {
             "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "sidebar" },
+            "name": { "kind": "Name", "value": "external_sidebar" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarMutation" }
+              "name": { "kind": "Name", "value": "External_sidebarMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_docMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "internal_sidebar" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Internal_sidebarMutation" }
             }
           }
         ]
@@ -4811,7 +7267,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocMutation" },
+        "name": { "kind": "Name", "value": "External_docMutation" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -4854,7 +7310,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocMutation"
         },
         "fields": [
           {
@@ -4879,7 +7335,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkMutation"
         },
         "fields": [
           {
@@ -4904,7 +7360,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsMutation"
         },
         "fields": [
           {
@@ -4914,7 +7370,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsDocMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsDocMutation"
               }
             }
           },
@@ -4925,7 +7381,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsLinkMutation"
               }
             }
           }
@@ -4935,7 +7391,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsCategoryMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryMutation"
         },
         "fields": [
           {
@@ -4971,7 +7427,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItemsCategoryItemsMutation"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryItemsMutation"
                 }
               }
             }
@@ -4982,7 +7438,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsDocMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocMutation"
         },
         "fields": [
           {
@@ -5007,7 +7463,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsLinkMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLinkMutation"
         },
         "fields": [
           {
@@ -5032,7 +7488,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryItemsMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryItemsMutation"
         },
         "fields": [
           {
@@ -5042,7 +7498,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsCategoryMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsCategoryMutation"
               }
             }
           },
@@ -5053,7 +7509,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsDocMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsDocMutation"
               }
             }
           },
@@ -5064,7 +7520,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryItemsLinkMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryItemsLinkMutation"
               }
             }
           }
@@ -5074,7 +7530,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsCategoryMutation"
+          "value": "Internal_sidebarItemsCategoryItemsCategoryMutation"
         },
         "fields": [
           {
@@ -5110,7 +7566,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsCategoryItemsMutation"
+                  "value": "Internal_sidebarItemsCategoryItemsCategoryItemsMutation"
                 }
               }
             }
@@ -5121,7 +7577,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsDocMutation"
+          "value": "Internal_sidebarItemsCategoryItemsDocMutation"
         },
         "fields": [
           {
@@ -5146,7 +7602,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsLinkMutation"
+          "value": "Internal_sidebarItemsCategoryItemsLinkMutation"
         },
         "fields": [
           {
@@ -5171,7 +7627,7 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
-          "value": "SidebarItemsCategoryItemsMutation"
+          "value": "Internal_sidebarItemsCategoryItemsMutation"
         },
         "fields": [
           {
@@ -5181,7 +7637,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsCategoryMutation"
+                "value": "Internal_sidebarItemsCategoryItemsCategoryMutation"
               }
             }
           },
@@ -5192,7 +7648,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsDocMutation"
+                "value": "Internal_sidebarItemsCategoryItemsDocMutation"
               }
             }
           },
@@ -5203,7 +7659,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryItemsLinkMutation"
+                "value": "Internal_sidebarItemsCategoryItemsLinkMutation"
               }
             }
           }
@@ -5211,7 +7667,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsCategoryMutation" },
+        "name": {
+          "kind": "Name",
+          "value": "External_sidebarItemsCategoryMutation"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -5246,7 +7705,7 @@
                 "kind": "NamedType",
                 "name": {
                   "kind": "Name",
-                  "value": "SidebarItemsCategoryItemsMutation"
+                  "value": "Internal_sidebarItemsCategoryItemsMutation"
                 }
               }
             }
@@ -5255,7 +7714,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsDocMutation" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsDocMutation" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -5277,7 +7736,10 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsLinkMutation" },
+        "name": {
+          "kind": "Name",
+          "value": "External_sidebarItemsLinkMutation"
+        },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -5299,7 +7761,7 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarItemsMutation" },
+        "name": { "kind": "Name", "value": "External_sidebarItemsMutation" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -5308,7 +7770,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "SidebarItemsCategoryMutation"
+                "value": "External_sidebarItemsCategoryMutation"
               }
             }
           },
@@ -5317,7 +7779,10 @@
             "name": { "kind": "Name", "value": "doc" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsDocMutation" }
+              "name": {
+                "kind": "Name",
+                "value": "External_sidebarItemsDocMutation"
+              }
             }
           },
           {
@@ -5325,14 +7790,17 @@
             "name": { "kind": "Name", "value": "link" },
             "type": {
               "kind": "NamedType",
-              "name": { "kind": "Name", "value": "SidebarItemsLinkMutation" }
+              "name": {
+                "kind": "Name",
+                "value": "External_sidebarItemsLinkMutation"
+              }
             }
           }
         ]
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "SidebarMutation" },
+        "name": { "kind": "Name", "value": "External_sidebarMutation" },
         "fields": [
           {
             "kind": "InputValueDefinition",
@@ -5357,7 +7825,220 @@
               "kind": "ListType",
               "type": {
                 "kind": "NamedType",
-                "name": { "kind": "Name", "value": "SidebarItemsMutation" }
+                "name": {
+                  "kind": "Name",
+                  "value": "External_sidebarItemsMutation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_docMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "tags" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "body" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "JSON" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsCategoryMutation"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "link" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "docLink" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsCategoryItemsMutation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsDocMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "document" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "Internal_sidebarItemsLinkMutation"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "href" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarItemsMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "category" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsCategoryMutation"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "doc" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsDocMutation"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "link" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Internal_sidebarItemsLinkMutation"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Internal_sidebarMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "_warning" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Internal_sidebarItemsMutation"
+                }
               }
             }
           }

@@ -84,6 +84,7 @@ describe("tinaHandler", () => {
   });
 
   it("should log debug information about the request", async () => {
+    (cookie.parse as vi.Mock).mockReturnValue({});
     await tinaHandler(mockReq as NextApiRequest, mockRes as NextApiResponse);
 
     expect(logger.debug).toHaveBeenCalledWith(

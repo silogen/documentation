@@ -16,7 +16,7 @@ export const rootPath = "docs/silogen-public-docs";
 
 const ModifiedTinaUserCollection = {
   ...TinaUserCollection,
-  path: "/external-docs/content/users",
+  path: "/internal-docs/content/users",
 };
 
 const WarningIcon = (props) => {
@@ -141,10 +141,47 @@ const RestartWarning = () => {
 //   ],
 // };
 
-const DocsCollection = {
-  name: "doc",
-  label: "Docs",
+const ExternalDocsCollection = {
+  name: "external_doc",
+  label: "External Docs",
   path: "/external-docs/docs",
+  format: "mdx",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      isTitle: true,
+      required: true,
+    },
+    {
+      type: "string",
+      name: "description",
+      label: "Description",
+    },
+    {
+      label: "Tags",
+      name: "tags",
+      type: "string",
+      list: true,
+      ui: {
+        component: "tags",
+      },
+    },
+    {
+      type: "rich-text",
+      name: "body",
+      label: "Body",
+      isBody: true,
+      templates: [...MDXTemplates],
+    },
+  ],
+};
+
+const InternalDocsCollection = {
+  name: "internal_doc",
+  label: "Internal Docs",
+  path: "/internal-docs/docs",
   format: "mdx",
   fields: [
     {
@@ -197,7 +234,7 @@ const DocLinkTemplate = {
       label: "Document",
       name: "document",
       type: "reference",
-      collections: ["doc"],
+      collections: ["internal_doc", "external_doc"],
       isTitle: true,
       required: true,
     },
@@ -268,7 +305,7 @@ const CategoryFields = [
     name: "docLink",
     label: "Document",
     type: "reference",
-    collections: ["doc"],
+    collections: ["internal_doc", "external_doc"],
     ui: {
       component: (props) => {
         const link = React.useMemo(() => {
@@ -281,7 +318,7 @@ const CategoryFields = [
             .reduce((o, i) => o[i], props.tinaForm.values).link;
         }, [props.tinaForm.values]);
 
-        if (link !== "doc") {
+        if (link !== "internal_doc" && link !== "external_doc") {
           return null;
         }
 
@@ -355,10 +392,46 @@ const SidebarItemsField = {
   templates: [CategoryTemplate, DocLinkTemplate, ExternalLinkTemplate],
 };
 
-const SidebarCollection = {
-  name: "sidebar",
-  label: "Docs Sidebar",
+const ExternalSidebarCollection = {
+  name: "external_sidebar",
+  label: "External Docs Sidebar",
   path: "/external-docs/config/sidebar",
+  format: "json",
+  ui: {
+    global: true,
+    allowedActions: {
+      create: false,
+      delete: false,
+    },
+  },
+  fields: [
+    {
+      type: "string",
+      name: "_warning",
+      ui: {
+        component: () => {
+          return <RestartWarning />;
+        },
+      },
+    },
+    {
+      type: "string",
+      label: "Label",
+      name: "label",
+      required: true,
+      isTitle: true,
+      ui: {
+        component: "hidden",
+      },
+    },
+    SidebarItemsField,
+  ],
+};
+
+const InternalSidebarCollection = {
+  name: "internal_sidebar",
+  label: "Internal Docs Sidebar",
+  path: "/internal-docs/config/sidebar",
   format: "json",
   ui: {
     global: true,
@@ -430,7 +503,7 @@ const NavbarItemFields = [
     name: "docLink",
     label: "Document",
     type: "reference",
-    collections: ["doc"],
+    collections: ["internal_doc", "external_doc"],
     ui: {
       component: (props) => {
         const link = React.useMemo(() => {
@@ -443,7 +516,7 @@ const NavbarItemFields = [
             .reduce((o, i) => o[i], props.tinaForm.values).link;
         }, [props.tinaForm.values]);
 
-        if (link !== "doc") {
+        if (link !== "internal_doc" && link !== "external_doc") {
           return null;
         }
 
@@ -689,7 +762,7 @@ const SettingsCollection = {
                       type: "reference",
                       label: "Page",
                       name: "to",
-                      collections: ["doc", "page"],
+                      collections: ["internal_doc", "external_doc", "page"],
                     },
                   ],
                 },
@@ -858,10 +931,12 @@ export default defineConfig({
       ModifiedTinaUserCollection,
       // PageCollection,
       // PagesCollection,
-      DocsCollection,
+      ExternalDocsCollection,
+      ExternalSidebarCollection,
+      InternalDocsCollection,
+      InternalSidebarCollection,
       // PostCollection,
       // HomepageCollection,
-      SidebarCollection,
       // SettingsCollection,
     ],
   },

@@ -1,4 +1,4 @@
-export default {
+const config = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -12,7 +12,7 @@ export default {
     return [
       {
         source: "/",
-        destination: "/admin/index.html",
+        destination: "/index.html",
       },
       {
         source: "/admin",
@@ -22,3 +22,5 @@ export default {
   },
   output: "standalone",
 };
+
+export default config;

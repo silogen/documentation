@@ -1,0 +1,15 @@
+{
+  "label": "Internal Docs Sidebar",
+  "items": [
+    {
+      "document": "docs/index.mdx",
+      "label": "Start here",
+      "_template": "doc"
+    },
+    {
+      "document": "docs/editing-docs.mdx",
+      "label": "Editing the Documentation",
+      "_template": "doc"
+    }
+  ]
+}

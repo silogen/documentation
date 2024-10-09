@@ -67,13 +67,32 @@ const tinaHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
-  const cookies = cookie.parse(req.headers.cookie || "");
-  logger.debug({ cookies }, "Received cookies");
-  const token =
-    cookies["next-auth.session-token"] ||
-    cookies["__Secure-next-auth.session-token"];
-  logger.debug({ token }, "Extracted token from cookie");
-  const userId = token ? await analyzeToken(token) : "unknown";
+  let userId = "unknown";
+
+  // Check if this is a login attempt
+  if (
+    req.url === "/api/tina/auth/callback/credentials" &&
+    req.method === "POST"
+  ) {
+    logger.debug("Handling login attempt");
+    // For login attempts, we'll let the handler deal with authentication
+  } else {
+    // For all other requests, try to get the user from the session token
+    const cookies = cookie.parse(req.headers.cookie || "");
+    logger.debug({ cookies }, "Received cookies");
+
+    const token =
+      cookies["__Secure-next-auth.session-token"] ||
+      cookies["next-auth.session-token"];
+
+    if (token) {
+      logger.debug({ token }, "Extracted token from cookie");
+      userId = await analyzeToken(token);
+    } else {
+      logger.debug("No session token found in cookies");
+    }
+  }
+
   setCurrentUserId(userId); // Update the global user ID
   logger.debug({ userId }, "Request received from user");
   logger.debug({ method: req.method, url: req.url }, "Request details");

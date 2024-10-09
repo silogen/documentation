@@ -1,6 +1,16 @@
-import sidebarData from "./external-docs/config/sidebar/index.json";
+interface ItemProps {
+  type: string;
+  id?: string;
+  label?: string;
+  link?: {
+    type: string;
+    id?: string;
+  };
+  items?: ItemProps[];
+  href?: string;
+}
 
-const getDocId = (doc) => {
+export const getDocId = (doc: string): string => {
   return doc
     .replace(/\.mdx?$/, "")
     .split("/")
@@ -8,10 +18,10 @@ const getDocId = (doc) => {
     .join("/");
 };
 
-const getItem = (item) => {
+export const getItem = (item: any): ItemProps[] => {
   const type = item["_template"];
 
-  let itemProps = {
+  let itemProps: ItemProps = {
     type: type,
   };
 
@@ -20,7 +30,7 @@ const getItem = (item) => {
       return [];
     }
 
-    itemProps.id = getDocId(item.document);
+    itemProps = { ...itemProps, id: getDocId(item.document) };
 
     if (item.label) {
       itemProps.label = item.label;
@@ -47,7 +57,7 @@ const getItem = (item) => {
       }
     }
 
-    itemProps.items = item.items.flatMap((item) => {
+    itemProps.items = item.items.flatMap((item: any) => {
       return getItem(item);
     });
   }
@@ -64,10 +74,8 @@ const getItem = (item) => {
   return [itemProps];
 };
 
-const sidebars = {
-  docsSidebar: sidebarData.items.flatMap((item) => {
+export const createSidebar = (sidebarData: any): ItemProps[] => {
+  return sidebarData.items.flatMap((item: any) => {
     return getItem(item);
-  }),
+  });
 };
-
-export default sidebars;

@@ -1,11 +1,15 @@
-# Static site generator and visual editor for SiloGen external docs
+# Static site generator and visual editor for SiloGen docs both internal and external
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator. We also use Tina CMS
-to enable visual editing of the docs without a Github account. Tina is deployed within a NextJS app.
+This project has the external docs under /external-docs and the internal-docs under /internal-docs. This project
+builds static websites for both using [Docusaurus](https://docusaurus.io/), a modern static website generator. We also use Tina CMS to enable visual editing of the docs without a Github account. Tina is deployed within a NextJS app.
 
-This project contains the documentation under the /external-docs/docs directory in the form of mdx files. It also has files for the sidebar and a seed file for the first user. You can edit all of these locally and
-commit the changes as usual or you can edit the pages using a visual cms tool called Tina through a webapp. You can also develop the Tina or
-Docusaurus functionality of this project in itself.
+The documentation comes in the form of mdx files. It also has files for the sidebars and a seed file for the first TinaCMS user. You can edit all of these locally and
+commit the changes as usual or you can edit the pages using the visual tool through a webapp. The webapp has the
+internal docs site under / and the TinaCMS app under /admin. The webapp is deployed as a service in k8s and can
+be reached at https://internal-docs.services.silogen.ai. The external docs are hosted by GitHub pages at
+https://docs.silogen.ai.
+
+You can also develop the TinaCMS or Docusaurus functionality of this project in itself.
 
 ## Quickstart With Tina
 
@@ -23,12 +27,18 @@ $ pnpm install && npm run dev
 Alternatively, you can edit the files manually in place and then see the results live at `http://localhost:3000/` with:
 
 ```
-$ npx docusaurus start
+$ npm run docusaurus-start-internal
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server. When you are done editing you can commit changes as usual.
+or
 
-The sidebar is constructed from the `external-docs/config/sidebar/index.json` file. You can edit it manually or you can edit it using TinaCMS.
+```
+$ npm run docusaurus-start-external
+```
+
+These commands start a local development server and opens up a browser window. Most changes are reflected live without having to restart the server. When you are done editing you can commit changes as usual.
+
+The sidebars are constructed from the `external-docs/config/sidebar/index.json` and `internal-docs/config/sidebar/index.json` files. You can edit them manually or you can edit them using TinaCMS.
 
 ## Build
 
@@ -77,17 +87,17 @@ Note: when running tinacms with `npm run dev` it modifies the public/admin/.giti
 When TinaCMS is deployed as a web app you can use it to edit the files in the docs online without a Github account.
 
 - First ask somebody to give you an account to the webapp.
-- Edit the files as you wish. As you save your changes they are committed to the `external-docs` branch of the core repository.
+- Edit the files as you wish. As you save your changes they are committed to the `docs-edit` branch of the core repository.
 - When your are done editing, create a PR for the changes (or ask someone to).
-- When the PR is merged to main the deployment will happen automatically as described below.
+- When the PR is merged to main the deployment will happen automatically for external docs and when deploying the internal-docs service for internal docs as described below.
 
 ## Deployment
 
 ### Deployment of the Docusaurus site
 
-Deployment will happen automatically like this:
+Deployment will happen automatically for external docs like this:
 
-- when changes to this directory are detected on the main branch, the workflow "docs-public.yml" will copy it over to the public documentation repository.
+- when changes to this directory are detected on the main branch, the workflow "docs-external-deploy.yml" will copy it over to the public documentation repository.
 - when there is a push to the main branch of that repo, its workflow "deploy-docs.yml" will build the site and deploy it in GitHub pages.
 
 ### Deployment of the Tina CMS/NextJS app for visual editing
@@ -97,4 +107,4 @@ The webapp is deployed during a release of the SiloGen system.
 ## Future Work
 
 - enable regular auth with keycloak and a special role that allows editing docs.
-- deploy also the internal docs using this method.
+- (DONE) deploy also the internal docs using this method.

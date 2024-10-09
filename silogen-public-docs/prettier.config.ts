@@ -1,4 +1,4 @@
-export default {
+const config = {
   trailingComma: "all",
   singleQuote: false,
   plugins: [
@@ -23,3 +23,5 @@ export default {
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };
+
+export default config;

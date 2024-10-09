@@ -3,12 +3,14 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "SiloGen Docs",
+  title: "SiloGen INTERNAL Docs",
   tagline: "Custom LLMs made easy.",
   favicon: "img/favicon.ico",
+  // with these static dirs we don't get the CNAME file in the build
+  staticDirectories: ["static-common"],
 
   // Set the production url of your site here
-  url: "https://docs.silogen.ai",
+  url: "https://internal-docs.services.silogen.ai",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -16,9 +18,9 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "silogen", // Usually your GitHub org/user name.
-  projectName: "docs", // Usually your repo name.
+  projectName: "internal-docs", // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
@@ -34,8 +36,8 @@ const config: Config = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          path: "./external-docs/docs",
-          sidebarPath: "./sidebars.mjs",
+          path: "./internal-docs/docs",
+          sidebarPath: "./sidebar-internal.ts",
           routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -67,9 +69,9 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "docsSidebar",
+          sidebarId: "internalDocsSidebar",
           position: "left",
-          label: "Docs",
+          label: "Internal Docs",
         },
         {
           href: "https://www.silo.ai/silogen",
@@ -90,4 +92,4 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 };
 
-export default config satisfies Config;
+export default config;
