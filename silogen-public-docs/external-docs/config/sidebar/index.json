@@ -79,7 +79,7 @@
         },
         {
           "document": "docs/developer-console/playground-compare.mdx",
-          "label": "Playground - Model Comparison",
+          "label": "Playground - Compare",
           "_template": "doc"
         },
         {
